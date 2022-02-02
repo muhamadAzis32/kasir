@@ -6,6 +6,7 @@ use App\Http\Controllers\indexController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\TransaksiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +57,5 @@ Route::post('/save-produk', [ProdukController::class, 'saveProduk']);
 Route::get('/edit-produk/{id}', [ProdukController::class, 'edit']);
 Route::post('/update-produk/{id}', [ProdukController::class, 'updateProduk']);
 Route::get('/hapus-produk/{id}', [ProdukController::class, 'hapusProduk']);
+
+Route::get('/transaksi', [TransaksiController::class, 'viewTransaksi']);

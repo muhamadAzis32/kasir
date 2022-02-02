@@ -20,9 +20,11 @@
                             <thead>
                                 <tr>
                                     <th class="col-md-1">#</th>
+                                    <th>Member</th>
                                     <th>Produk</th>
-                                    <th>Harga</th>
-                                    <th>Kategori</th>
+                                    <th>Jumlah</th>
+                                    <th>Bayar</th>
+                                    <th>Total</th>
                                     <th class="col-md-1">Action</th>
                                 </tr>
                             </thead>
@@ -30,16 +32,18 @@
                                 @foreach ($data as $x)
                                     <tr>
                                         <td>{{ $x->id }}</td>
-                                        <td>{{ $x->produk}}</td>
-                                        <td>{{ $x->harga }}</td>
-                                        <td>{{ $x->kategori['nmKategori'] }}</td>
+                                        <td>{{ $x->member['nama'] }}</td>
+                                        <td>{{ $x->produk['produk'] }}</td>
+                                        <td>{{ $x->jumlah}}</td>
+                                        <td>{{ $x->bayar }}</td>
+                                        <td>{{ $x->total}}</td>
                                         <td>
-                                            <a href="/edit-produk/{{ $x->id }}" type="button"
+                                            <a href="/edit-transaksi/{{ $x->id }}" type="button"
                                                 class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
                                                 data-placement="top" title="Edit">
                                                 <i class="mdi mdi-border-color"></i>
                                             </a>
-                                            <a type="button" href="/hapus-produk/{{ $x->id }}"
+                                            <a type="button" href="/hapus-transaksi/{{ $x->id }}"
                                                 onclick="return confirm('Apakah anda yakin menghapus data?')"
                                                 class="btn-sm btn-inverse-danger btn-rounded m-lg-1" data-toggle="tooltip"
                                                 data-placement="top" title="Delete">
