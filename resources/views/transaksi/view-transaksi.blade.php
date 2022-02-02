@@ -25,6 +25,7 @@
                                     <th>Jumlah</th>
                                     <th>Bayar</th>
                                     <th>Total</th>
+                                    <th>Kembalian</th>
                                     <th class="col-md-1">Action</th>
                                 </tr>
                             </thead>
@@ -36,7 +37,8 @@
                                         <td>{{ $x->produk['produk'] }}</td>
                                         <td>{{ $x->jumlah}}</td>
                                         <td>{{ $x->bayar }}</td>
-                                        <td>{{ $x->total}}</td>
+                                        <td>{{ $x->produk['harga'] * $x->jumlah  }}</td>
+                                        <td>{{ $x->bayar - ($x->produk['harga'] * $x->jumlah )}}</td>
                                         <td>
                                             <a href="/edit-transaksi/{{ $x->id }}" type="button"
                                                 class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"

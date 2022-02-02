@@ -318,18 +318,17 @@
                     </li>
                     <li class="nav-item nav-category">Transaksi</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/transaksi">
                             <i class="menu-icon mdi mdi-timetable"></i>
                             <span class="menu-title">Data Transaksi</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/input-transaksi">
                             <i class="menu-icon mdi mdi-wallet"></i>
                             <span class="menu-title">Proses Transaksi</span>
                         </a>
                     </li>
-
                 </ul>
             </nav>
             <!-- partial -->

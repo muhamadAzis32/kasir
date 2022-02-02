@@ -59,3 +59,5 @@ Route::post('/update-produk/{id}', [ProdukController::class, 'updateProduk']);
 Route::get('/hapus-produk/{id}', [ProdukController::class, 'hapusProduk']);
 
 Route::get('/transaksi', [TransaksiController::class, 'viewTransaksi']);
+Route::get('/input-transaksi', [TransaksiController::class, 'inputTransaksi']);
+Route::post('/save-transaksi', [TransaksiController::class, 'saveTransaksi']);
