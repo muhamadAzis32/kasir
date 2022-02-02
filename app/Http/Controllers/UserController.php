@@ -12,6 +12,43 @@ use Illuminate\Support\Facades\File;
 class UserController extends Controller
 {
 
+    //Proses login
+    public function login(Request $a)
+    {
+        //Validasi
+        $messages = [
+            'email.required' => 'Email tidak boleh kosong!',
+            'password.required' => 'Password tidak boleh kosong!',
+        ];
+        $cekValidasi = $a->validate([
+            //'email' => 'required|email:dns|unique:users',
+            'email' => 'required',
+            'password' => 'required|max:50'
+        ], $messages);
+
+        if (Auth::attempt($cekValidasi)) {
+            $a->session()->regenerate();
+            return redirect('index');
+        }
+        return back();
+        /*
+        if (Auth::attempt($cek)) {
+            $a->session()->regenerate();
+            return redirect()->intended('/surat');
+        }*/
+    }
+
+    //logout
+    public function logout(Request $a)
+    {
+        Auth::logout();
+        $a->session()->invalidate();
+        $a->session()->regenerateToken();
+        return redirect('login');
+    }
+
+
+
     public function indexLogin()
     {
         return view("login");

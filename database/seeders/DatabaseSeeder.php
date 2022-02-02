@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123'),
             'level' => 'admin'
 */
-            'nama' => 'kasi',
+            'nama' => 'kasir',
             'email' => 'kasir@gmail.com',
             'password' => Hash::make('123'),
             'level' => 'kasir'

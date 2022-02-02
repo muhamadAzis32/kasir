@@ -25,7 +25,10 @@ Route::get('/', function () {
 
 Route::get('/layout', [indexController::class, 'layout']);
 Route::get('/index', [indexController::class, 'index']);
-Route::get('/login', [UserController::class, 'indexLogin']);
+Route::get('/view-login', [UserController::class, 'indexLogin']);
+
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/logout', [UserController::class, 'logout']);
 
 //User
 Route::get('/user', [UserController::class, 'viewUser']);
@@ -61,3 +64,6 @@ Route::get('/hapus-produk/{id}', [ProdukController::class, 'hapusProduk']);
 Route::get('/transaksi', [TransaksiController::class, 'viewTransaksi']);
 Route::get('/input-transaksi', [TransaksiController::class, 'inputTransaksi']);
 Route::post('/save-transaksi', [TransaksiController::class, 'saveTransaksi']);
+Route::get('/edit-transaksi/{id}', [TransaksiController::class, 'edit']);
+Route::post('/update-transaksi/{id}', [TransaksiController::class, 'updateTransaksi']);
+Route::get('/hapus-transaksi/{id}', [TransaksiController::class, 'hapusTransaksi']);

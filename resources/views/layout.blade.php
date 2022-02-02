@@ -75,10 +75,8 @@
                                 <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
                                 <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
                             </div>
-                            <a class="dropdown-item"><i
-                                    class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile
-                            </a>
-                            <a class="dropdown-item"><i
+
+                            <a href="/logout" class="dropdown-item"><i
                                     class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>LogOut</a>
                         </div>
                     </li>
@@ -417,9 +415,9 @@
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
-                "lengthChange": true,
+                "lengthChange": false,
                 "autoWidth": true,
-
+                "buttons": ["excel","print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": true,
@@ -432,7 +430,6 @@
             });
         });
     </script>
-
 
 </body>
 
