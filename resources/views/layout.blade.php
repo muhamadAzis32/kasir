@@ -66,14 +66,27 @@
                     <li class="nav-item dropdown d-none d-lg-block user-dropdown">
                         <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img class="img-xs rounded-circle" src="{{ asset('template/images/faces/face8.jpg') }}"
-                                alt="Profile image"> </a>
+                            @empty(auth()->user()->file)
+                                <img class="img-xs rounded-circle" src="{{ asset('template/images/faces/face8.jpg') }}"
+                                    alt="Profile image">
+                            @else
+                                <img class="img-xs rounded-circle" src="{{ url('/' . auth()->user()->file) }}"
+                                    alt="profile">
+                            @endempty
+                        </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                             <div class="dropdown-header text-center">
-                                <img class="img-md rounded-circle"
-                                    src="{{ asset('template/images/faces/face8.jpg') }}" alt="Profile image">
-                                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
+
+                                @empty(auth()->user()->file)
+                                    <img class="img-xs rounded-circle"
+                                        src="{{ asset('template/images/faces/face8.jpg') }}" alt="Profile image">
+                                @else
+                                    <img class="img-xs rounded-circle" src="{{ url('/' . auth()->user()->file) }}"
+                                        alt="profile">
+                                @endempty
+
+                                <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->nama }}</p>
+                                <p class="fw-light text-muted mb-0">{{ auth()->user()->email }}</p>
                             </div>
 
                             <a href="/logout" class="dropdown-item"><i
@@ -289,31 +302,35 @@
                         </a>
                     </li>
 
-                    <li class="nav-item nav-category">Master</li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/kategori">
-                            <i class="menu-icon mdi mdi-floor-plan"></i>
-                            <span class="menu-title">Kategori</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/produk">
-                            <i class="menu-icon mdi mdi-food-apple"></i>
-                            <span class="menu-title">Produk</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/member">
-                            <i class="menu-icon mdi mdi-human-greeting"></i>
-                            <span class="menu-title">Member</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/user">
-                            <i class="menu-icon mdi mdi-account-circle-outline"></i>
-                            <span class="menu-title">User</span>
-                        </a>
-                    </li>
+                    <!--Buat admin-->
+                    @if (auth()->user()->level == 'Admin')
+                        <li class="nav-item nav-category">Master</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/kategori">
+                                <i class="menu-icon mdi mdi-floor-plan"></i>
+                                <span class="menu-title">Kategori</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/produk">
+                                <i class="menu-icon mdi mdi-food-apple"></i>
+                                <span class="menu-title">Produk</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/member">
+                                <i class="menu-icon mdi mdi-human-greeting"></i>
+                                <span class="menu-title">Member</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user">
+                                <i class="menu-icon mdi mdi-account-circle-outline"></i>
+                                <span class="menu-title">User</span>
+                            </a>
+                        </li>
+                    @endif
+
                     <li class="nav-item nav-category">Transaksi</li>
                     <li class="nav-item">
                         <a class="nav-link" href="/transaksi">
@@ -327,6 +344,7 @@
                             <span class="menu-title">Proses Transaksi</span>
                         </a>
                     </li>
+
                 </ul>
             </nav>
             <!-- partial -->
@@ -417,7 +435,7 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": true,
-                "buttons": ["excel","print"]
+                "buttons": ["excel", "print"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({
                 "paging": true,

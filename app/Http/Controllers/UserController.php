@@ -44,7 +44,7 @@ class UserController extends Controller
         Auth::logout();
         $a->session()->invalidate();
         $a->session()->regenerateToken();
-        return redirect('login');
+        return redirect('view-login');
     }
 
 

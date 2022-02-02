@@ -21,6 +21,7 @@
                                     <th class="col-md-1">#</th>
                                     <th>Nama</th>
                                     <th>Email</th>
+                                    <th>Level</th>
                                     <th>Gambar</th>
                                     <th class="col-md-1">Action</th>
                                 </tr>
@@ -31,6 +32,7 @@
                                         <td>{{ $x->id }}</td>
                                         <td>{{ $x->nama }}</td>
                                         <td>{{ $x->email }}</td>
+                                        <td>{{ $x->level }}</td>
                                         <td>
                                             @empty($x->file)
                                                 <span class="badge badge-danger">Tidak ada</span>
