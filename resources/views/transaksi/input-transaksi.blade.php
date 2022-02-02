@@ -28,7 +28,7 @@
                             <select class="form-control" id="21" name="produk_id" value="{{ old('produk_id') }}">
                                 <option selected disabled>Select one</option>
                                 @foreach ($produk as $a)
-                                    <option value="{{ $x->id }}">{{ $a->produk }}</option>
+                                    <option value="{{ $a->id }}">{{ $a->produk }}</option>
                                 @endforeach
                             </select>
                             @error('produk_id')

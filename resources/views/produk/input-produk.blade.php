@@ -31,7 +31,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="22">Perihal</label>
+                            <label for="22">Kategori</label>
                             <select class="form-control" id="22" name="kategori_id"
                                 value="{{ old('kategori_id') }}">
                                 <option selected disabled>Select one</option>
